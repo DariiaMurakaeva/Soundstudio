@@ -5,6 +5,7 @@ body {
     max-width: 1920px;
     margin: 0 auto;
     background: #F0F0F0;
+    transition: all 0.3s;
   }
 
 p {
@@ -24,7 +25,7 @@ p {
   padding: 4.4vw;
   padding-bottom: 0vw;
   grid-template-columns: 21vw 20.7vw 13.2vw 21vw;
-  grid-template-rows: 21vw 21vw 21vw 21vw 10vw;
+  grid-template-rows: 21vw 21vw 21vw 21vw 13vw;
   gap: 4.4vw 4.4vw;
   grid-template-areas: 
     "piano piano piano orange"
@@ -55,16 +56,16 @@ p {
   position: absolute;
   display: block;
   margin-top: 1.4vw;
-  width: 207.7vw;
-  font-size: 27.6pt;
+  width: 203.2vw;
+  font-size: 2.5vw;
   font-weight: 600;
   color: #060602;
   animation: row 15s linear infinite;
 }
 
 @keyframes row {
-  0% {right: -196vw;}
-  100% {right: calc(100% - 11.4vw);}
+  0% {right: -191vw;}
+  100% {right: calc(100% - 10.9vw);}
 }
 
 .block-tiles {
@@ -89,6 +90,7 @@ p {
   background-color: #F394BE;
   border: .3vw solid #F0F0F0;
   transition: 0.2s;
+  cursor: pointer;
 }
 
 .tiles:hover {
@@ -103,6 +105,7 @@ p {
   background-color: #5092CE;
   display: inline-block;
   transition: 0.2s;
+  cursor: pointer;
 }
 
 .container-klavishi div:nth-of-type(1) {
@@ -210,6 +213,7 @@ p {
   height: 0.7vw;
   background-color: #028642;
   margin-top: 1.5px;
+  cursor: grab;
 }
 
 .polzunok:nth-of-type(1) {
@@ -250,18 +254,17 @@ p {
 .shtuka {
   width: 6vw;
   height: 6vw;
-  border-radius: 50%;
-  border: .3vw solid #060602;
-  margin: 10vw 2.5vw;
+  margin: 10vw 2.6vw;
+  background-image: url("../images/shtuka.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
 }
 
-.shtuka div {
-  width: 0.5vw;
-  height: 2vw;
-  background-color: #060602;
-  margin: -0.1vw 2.4vw;
+.volume-container {
+  width: 100%;
+  float: right;
 }
-
 .vol {
   width: 7vw;
   height: 1.9vw;
@@ -271,7 +274,7 @@ p {
 .vol div {
   height: 1vw;
   background-color: #5092CE;
-  animation: volume 2s ease infinite;
+  animation: volume 1s ease infinite;
 }
 
 .vol div:nth-of-type(1) {  
@@ -306,6 +309,27 @@ p {
   height: 100%;
   background-color: #F0F0F0;
   border: 0.6vw solid #060602;
+  transition: all 0.3s;
+}
+
+.igla {
+  position: absolute;
+  z-index: 8;
+  top: 1vw;
+  left: -1.6vw;
+  width: 9vw;
+  height: 13vw;
+  background-image: url("../images/igla.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.fixed {
+  top: 0.4vw;
+  left: 0.6vw;
+  transform: rotate(-30deg);
 }
 
 .mesto {
@@ -333,10 +357,13 @@ p {
 }
 
 .shtuchka {
+  position: absolute;
+  top: 1.2vw;
+  left: 14vw;
   width: 1.4vw;
   height: 1.4vw;
   background-color: #028642;
-  margin: 19.4vw 14vw;
+  cursor: grab;
 }
 
 .kruzhochek {
@@ -344,8 +371,14 @@ p {
   height: 2vw;
   border-radius: 50%;
   background-color: #F0F0F0;
-  border: 0.3vw solid #060602;
-  margin: -21vw 17vw;
+  border: 0.3vw solid #F394BE;
+  margin: 19vw 17vw;
+  cursor: pointer;
+}
+
+.pink {
+  background-color: #F394BE;
+  border: none;
 }
 
 .boxes {
@@ -354,11 +387,13 @@ p {
   position: relative;
   width: 100%;
   height: 100%;
+  transition: all 0.3s;
 }
 
 .korobki {
   width: 39vw;
-  height: 39vw;
+  height: 100%;
+  cursor: pointer;
   background-image: url("../images/boxes.png");
   background-repeat: no-repeat;
   background-size: contain;
@@ -370,20 +405,26 @@ p {
   width: 14vw;
   height: 14vw;
   border-radius: 50%;
-  background-color: #060602;
-  border: 0.3vw solid #5092CE;
+  background-image: url("../images/plastinka.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
   position: absolute;
   top: 1vw;
   left: 14vw;
   z-index: 4;
+  transition: all 1s;
+  animation: spin 3s linear infinite;
+  animation-play-state: paused;
+  cursor: grab;
 }
 
-.plastinka div {
-  width: 6vw;
-  height: 6vw;
-  border-radius: 50%;
-  background-color: #5092CE;
-  margin: 3.7vw;
+.move {
+  left: 24vw;
+}
+
+.top {
+  z-index: 6;
+  transition: none;
 }
 
 .squaretool {
@@ -393,6 +434,7 @@ p {
   height: 100%;
   background-color: #F0F0F0;
   border: 0.6vw solid #060602;
+  transition: all 0.3s;
 }
 
 .block-kvadratiki {
@@ -411,13 +453,22 @@ p {
   display: inline-block;
   margin-top: 0.3vw;
   border: 0.3vw solid #060602;
+  cursor: pointer;
+}
+
+.kv1 {
+  border: 0.3vw solid #060602;
+}
+
+.kv31 {
+  border: none;
+  background-color: #028642;
 }
 
 .knopka {
   width: 2vw;
   height: 2vw;
   background-color: #060602;
-  
 }
 
 .first {
@@ -436,8 +487,14 @@ p {
   width: 2.5vw;
   height: 2.5vw;
   border-radius: 50%;
-  border: 0.3vw solid #060602;
   margin: -3.2vw 15.4vw;
+  background-color: #5092CE;
+  animation: kruzhok 0.7s linear alternate infinite;
+}
+
+@keyframes kruzhok {
+0% {opacity: 0%;};
+100% {opacity: 100%;};
 }
 
 .blue {
@@ -454,13 +511,25 @@ p {
   background-image: url("../images/koltsa.svg");
   background-repeat: no-repeat;
   background-size: contain;
+  animation: zvuk 0.4s linear alternate infinite;
+  animation-play-state: paused;
 }
+
 .odin {
   margin: 7vw 3vw;
 }
 
 .dva {
   margin: -19vw 31.6vw;
+}
+
+.scale {
+  animation-play-state: running;
+}
+
+@keyframes zvuk {
+0% {transform: scale(1)}
+100% {transform: scale(1.2)}
 }
 
 .block-thingies {
@@ -478,6 +547,13 @@ p {
   display: inline-block;
   margin-right: 1vw;
   background-image: url("../images/knopka-vkl.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.th5 {
+  background-image: url("../images/knopka-vykl.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -499,6 +575,7 @@ p {
   background-image: url("../images/krutilka.svg");
   background-repeat: no-repeat;
   background-size: contain;
+  cursor: pointer;
 }
 
 .ekran {
@@ -530,6 +607,7 @@ p {
   height: 2vw;
   background-color: #060602;
   margin-right: -1vw;
+  cursor: grab;
 }
 
 .kassety {
@@ -545,6 +623,11 @@ p {
     "il yi sam"
     "sa oh yuk";
   background-color: #F0F0F0;
+  transition: all 0.3s;
+}
+
+.kasseta {
+  cursor: pointer;
 }
 
 .kasseta div {
@@ -587,6 +670,95 @@ p {
   border: 0.6vw solid #060602;
 }
 
+#song1 {
+  position: absolute;
+}
+
+#song1 .popup1 {
+  position: absolute;
+  font-size: 1.9vw;
+  font-weight: 500;
+  color: #060602;
+  left: 1.3vw;
+  width: 7vw;
+  text-align: center;
+  opacity: 0;
+  animation: popup 0.5s ease-in;
+}
+
+#song2 {
+  position: absolute;
+}
+
+#song2 .popup2 {
+  position: absolute;
+  font-size: 1.9vw;
+  font-weight: 500;
+  color: #060602;
+  left: 14vw;
+  width: 10vw;
+  text-align: center;
+  opacity: 0;
+  animation: popup 0.5s ease-in;
+}
+
+#song3 {
+  position: absolute;
+}
+
+#song3 .popup3 {
+  position: absolute;
+  font-size: 1.9vw;
+  font-weight: 500;
+  color: #060602;
+  left: 28vw;
+  width: 10vw;
+  text-align: center;
+  opacity: 0;
+  animation: popup 0.5s ease-in;
+}
+
+#song4 {
+  position: absolute;
+}
+
+#song4 .popup4 {
+  position: absolute;
+  font-size: 1.9vw;
+  font-weight: 500;
+  color: #060602;
+  left: 1vw;
+  top: 14vw;
+  width: 10vw;
+  text-align: center;
+  opacity: 0;
+  animation: popup 0.5s ease-in;
+}
+
+#song5 {
+  position: absolute;
+}
+
+#song5 .popup5 {
+  position: absolute;
+  font-size: 1.9vw;
+  font-weight: 500;
+  color: #060602;
+  left: 14vw;
+  top: 14vw;
+  width: 10vw;
+  text-align: center;
+  opacity: 0;
+  animation: popup 0.5s ease-in;
+}
+
+@keyframes popup {
+0% 		{ transform: translateY(0px) scale(0.5); opacity: 0.5; }
+10% 	{ transform: translateY(0px) scale(1); opacity: 1;   }
+50% 	{ opacity: 1; }
+100%	{ transform: translateY(-5.5vw); opacity: 0; }
+}
+
 .dictophone {
   grid-area: dictophone;
   position: relative;
@@ -605,6 +777,8 @@ p {
   background-size: contain;
   top: -0.7vw;
   left: -1vw;
+  animation: spin 3s linear reverse infinite;
+  animation-play-state: paused;
 }
 
 .kolesiko2 {
@@ -617,6 +791,17 @@ p {
   background-size: contain;
   top: -0.7vw;
   left: 11vw;
+  animation: spin 3s linear infinite;
+  animation-play-state: paused;
+}
+
+.run {
+  animation-play-state: running;
+}
+
+@keyframes spin {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);};
 }
 
 .bottom {
@@ -643,6 +828,7 @@ p {
   border-radius: 50%;
   background-color: #FF994D;
   margin: 8.2vw 2vw;
+  cursor: pointer;
 }
 
 .paper {
@@ -651,6 +837,7 @@ p {
   width: 100%;
   height: 100%;
   background-color: #F0F0F0;
+  transition: all 0.3s;
 }
 
 .list {
@@ -658,6 +845,60 @@ p {
   height: 100%;
   background-color: #F0F0F0;
   border: 0.6vw solid #060602;
+}
+
+.type-container1 {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2vw;
+}
+
+.type1 {
+  width: 24ch;
+  font-size: 20pt;
+  font-weight: 500;
+  color: #060602;
+  overflow: hidden;
+  animation: border 0.75s step-end infinite, type 5s steps(24);
+  animation-play-state: paused;
+}
+
+.type-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2vw;
+}
+
+.type2 {
+  width: 24ch;
+  font-size: 19pt;
+  font-weight: 500;
+  color: #060602;
+  overflow: hidden;
+  animation: border 0.75s step-end infinite, type 5s steps(24);
+  animation-play-state: paused;
+  animation-delay: 0s;
+}
+
+.none {
+  display: none;
+}
+
+.type-run {
+  border-right: 4px solid #FF994D;
+  animation-play-state: running;
+}
+
+@keyframes border {
+  0% {border-color: #FF994D;};
+  50% {border-color: transparent;}
+  100% {border-color: #FF994D;};
+}
+
+@keyframes type {
+  from {
+    width: 0%;
+  }
 }
 
 .pencil {
@@ -670,6 +911,7 @@ p {
   background-size: 2vw 13vw;
   background-repeat: no-repeat;
   background-position: 0 8vw;
+  transition: all 0.3s;
 }
 
 .knopki {
@@ -679,6 +921,7 @@ p {
   height: 100%;
   background-color: #F0F0F0;
   border: 0.6vw solid #060602;
+  transition: all 0.3s;
 }
 
 .screenon {
@@ -688,6 +931,12 @@ p {
   background-image: url("../images/screenon.svg");
   background-repeat: no-repeat;
   background-size: contain;
+  animation: tsoizhiv 0.5s linear alternate infinite;
+}
+
+@keyframes tsoizhiv {
+  0% {opacity: 0%;};
+  100% {opacity: 100%;};
 }
 
 .block-knopochki {
@@ -696,6 +945,7 @@ p {
   margin: -0.6vw 1.25vw;
   border: 0.3vw solid #060602;
   display: flex;
+  transition: all 0.3s;
 }
 
 .container-knopochki {
@@ -708,7 +958,19 @@ p {
   width: 2.6vw;
   height: 2.6vw;
   display: inline-block;
+  background-color: #F0f0f0;
   border: 0.3vw solid #060602;
+  cursor: pointer;
+}
+
+.kn17 {
+  border: none;
+  background-color: #5092CE;
+}
+
+.kn18 {
+  border: none;
+  background-color: #FF994D;
 }
 
 .button2 {
@@ -718,6 +980,7 @@ p {
   background-image: url("../images/knopka-orange.svg");
   background-repeat: no-repeat;
   background-size: contain;
+  cursor: pointer;
 }
 
 .block-pugovki {
@@ -732,6 +995,7 @@ p {
   height: 2.4vw;
   border: 0.3vw solid #060602;
   margin-top: 0.5vw;
+  cursor: grab;
 }
 
 .way {
@@ -749,12 +1013,20 @@ p {
   margin: -1.5vw 0.2vw;
 }
 
+.screenoff {
+  width: 13vw;
+  height: 4.7vw;
+  border: 0.3vw solid #060602;
+  margin: -34.1vw 1.3vw;
+}
+
 .footer {
   grid-area: footer;
   width: 100%;
   height: 100%;
   position: relative;
   background-color: #F0F0F0;
+  transition: all 0.3s;
 }
 
 .footer p:nth-of-type(1) {
@@ -768,12 +1040,53 @@ p {
 .logo {
   width: 16vw;
   height: 7vw;
-  background-color: #F0F0F0;
   background-image: url('../images/logo.svg');
   background-repeat: no-repeat;
   background-size: contain;
   float: right;
   margin-top: -2vw;
 }
+
+.ghost {
+  position: absolute;
+  z-index: 10;
+  top: 53vw;
+  left: 97vw;
+  width: 34vw;
+  height: 34vw;
+  background-image: url("../images/ghost.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: ghost 1s linear;
+  transition: all 5s;
+  animation-play-state: paused;
+}
+
+.fly {
+  animation-play-state: running;
+}
+
+.stop {
+  animation-play-state: paused;
+}
+
+@keyframes ghost {
+  0% {top: 50vw; left: 97vw;}  
+  50% {top: 26vw; left: 48vw;}
+  100% {top: -32vw; left: 56vw; transform: rotate(80deg)}
+}
+
+.frame {
+  display: none;
+}
+
+.black {
+  background-color: #060602;
+}
+
+.pink-border {
+  border: 0.6vw solid #F394BE;
+}
+
 
 
